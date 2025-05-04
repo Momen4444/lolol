@@ -1,0 +1,253 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+  }
+  .profile-container {
+    width:30%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: auto;
+  }
+
+  .profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .profile-header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  .profile-header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  .profile-header p {
+    margin: 5px 0;
+    color: #777;
+  }
+  .profile-details {
+    line-height: 1.6;
+  }
+  .profile-details h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  .profile-details p {
+    margin: 5px 0;
+    color: #555;
+  }
+  .contact-info {
+    margin-top: 20px;
+  }
+  .contact-info h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  .contact-info p {
+    margin: 5px 0;
+    color: #555;
+  }
+  .navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #333;
+padding: 10px 20px;
+color: #fff;
+}
+
+.navbar .logo img {
+height: 40px;
+}
+
+.navbar .nav-links {
+list-style: none;
+display: flex;
+margin: 0;
+padding: 0;
+}
+
+.navbar .nav-links li {
+margin: 0 15px;
+}
+
+.navbar .nav-links a {
+text-decoration: none;
+color: #fff;
+font-size: 16px;
+transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+color: #f4f4f9;
+}
+.mainpage {
+    margin-top: 3vh;
+display: flex;
+justify-content: space-around;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table th, table td {
+    border-left: 1px solid #ccc; /* Add vertical border */
+    border-right: 1px solid #ccc; /* Add vertical border */
+    text-align: center;
+    padding: 8px;
+    width: 50%;
+  }
+  
+  table th:first-child, table td:first-child {
+    border-left: none;
+  }
+  
+  table th:last-child, table td:last-child {
+    border-right: none;
+  }
+  
+  table tr {
+    border: none;
+  }
+  .rating .star {
+    width: 30px;
+    height: auto;
+    margin: 0 2px;
+  }
+
+  .star {
+    fill:#555;
+    color:#555;
+    filter: grayscale()
+  }
+  .sidebaricon {
+    width: 2.7vh;
+    height: auto;
+    margin: 0 2px;
+    display: inline;
+  }
+  .sidebarh2 {
+    display: inline;
+    margin-left: 10px;
+    color: #555;
+  }
+  .sidebarblock {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .second-container {
+    width:100%;
+    background: #fff;
+    padding: 20px;
+    height: 40vh;
+    max-height: 150px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .maincontainer {
+    margin:0px auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .timetable {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 2vh;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .timeslot {
+    width: 30%;
+    height: 20vh;
+    margin-top :2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.044);
+    border-radius: 8px;
+    justify-content: space-between;
+  }
+  .timeslot h3 {
+    margin: 0;
+    font-size: 18px;
+    background-color: rgb(110, 176, 223);
+    width: 100%;
+    padding: 10px 0px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .timeslot p {
+    color: #000000;
+    padding: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin: 0;
+    width: 100%;
+    border-radius: 1px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+     
+  }
+
+  .schedule-btn {
+    border: none;
+    width: 100%;
+    height:30%;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: #ffffff88 solid 1px;
+  }
+
+  .schedule-btn:hover {
+    background-color: rgb(15, 159, 15);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }

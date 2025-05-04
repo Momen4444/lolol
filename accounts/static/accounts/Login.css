@@ -1,0 +1,225 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.register {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+.title_login {
+    font-size: 2.5rem;
+}
+
+.screen {
+    display: flex;
+    margin: 0;
+    padding: 0px;
+    width: 100%;
+    height: 100vh;
+
+}
+
+.big-welcome-page {
+    margin: 0;
+    padding: 0;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(10deg, rgb(112, 159, 220) 0%, rgba(172, 220, 232, 1) 57%);
+    box-shadow: 10px 0 30px rgba(255, 255, 255, 0.4);
+}
+
+.navbar {
+    display: flex;
+    height: 12vh;
+    background: linear-gradient(10deg, rgb(112, 159, 220) 0%, rgba(172, 220, 232, 1) 57%);
+    margin-bottom: 1vh;
+    align-items: center;
+}
+
+
+
+.welcome-page {
+    margin: 0;
+    padding: 0;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(10deg, rgb(112, 159, 220) 0%, rgba(172, 220, 232, 1) 57%);
+    box-shadow: 10px 0 30px rgba(255, 255, 255, 0.4);
+}
+
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+label,
+.label {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    margin-top: 20px;
+}
+
+.center {
+    margin: auto;
+}
+
+img {
+    width: 50%;
+}
+
+input {
+    margin: 0;
+    border: none;
+    width: fit-content;
+    font-size: 2vh;
+    padding: 10px;
+}
+
+.logo-container {
+    width: 100px;
+    margin: 10px auto;
+    margin-left: none;
+    text-align: center;
+    height: 2vh;
+}
+
+.logo {
+    width: 20px;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+.input_field {
+    display: flex;
+    width: 70%;
+    border-bottom: solid black;
+    margin-bottom: 10px;
+    padding: none;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 40vh;
+}
+
+select {
+    border: none;
+    border-bottom: solid black;
+    width: 50%;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    font-size: 18px;
+    max-width: 40vh;
+}
+
+button {
+    margin-top: 20px;
+    width: 50%;
+    padding: 12px;
+    background: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    max-width: 40vh;
+}
+
+.navlogo {
+    height: 15vh;
+    width: auto;
+}
+
+button:hover {
+    background: #005fa3;
+}
+
+.footer-links {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.icon {
+    height: 3vh;
+    width: auto;
+    margin-bottom: none;
+}
+
+form {
+    width: 100%;
+    padding: 0;
+    margin: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagediv {
+    display: flex;
+    align-items: center;
+    background-image: url('images\\hospital.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    justify-content: center;
+
+}
+
+.glass-box {
+    background: rgba(200, 200, 200, 0.2);
+    /* Greyish transparent */
+    border-radius: 16px;
+    padding: 2rem;
+    color: white;
+    backdrop-filter: blur(10px);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    /* For Safari */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    min-width: 200px;
+    max-width: 500px;
+    text-align: center;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

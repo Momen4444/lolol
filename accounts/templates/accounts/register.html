@@ -1,0 +1,356 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'accounts/register.css' %}">
+    <style>
+        .role-fields {
+            display: none;
+        }
+
+        .is-invalid {
+            border-color: #dc3545;
+        }
+
+        .invalid-feedback {
+            display: none;
+            color: #dc3545;
+            font-size: 0.875em;
+        }
+
+        .is-invalid~.invalid-feedback {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="mb-0">Create Your Account</h2>
+                        <p class="mb-0">Select your role to continue</p>
+                    </div>
+
+                    <div class="card-body p-4">
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+
+                        <form method="post" action="{% url 'accounts:accounts-register' %}"
+                            enctype="multipart/form-data" id="registrationForm" novalidate>
+                            {% csrf_token %}
+
+                            <!-- Basic Information -->
+                            <div class="mb-4">
+                                <h4 class="mb-3 border-bottom pb-2">Basic Information</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="id_first_name" class="form-label">First Name*</label>
+                                        <input type="text" name="first_name" class="form-control" id="id_first_name"
+                                            required>
+                                        <div class="invalid-feedback">Please enter your first name</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_last_name" class="form-label">Last Name*</label>
+                                        <input type="text" name="last_name" class="form-control" id="id_last_name"
+                                            required>
+                                        <div class="invalid-feedback">Please enter your last name</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_username" class="form-label">Username*</label>
+                                        <input type="text" name="username" class="form-control" id="id_username"
+                                            required>
+                                        <div class="invalid-feedback">Please choose a username</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_email" class="form-label">Email*</label>
+                                        <input type="email" name="email" class="form-control" id="id_email" required>
+                                        <div class="invalid-feedback">Please enter a valid email</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_phone_number" class="form-label">Phone Number</label>
+                                        <input type="tel" name="phone_number" class="form-control" id="id_phone_number">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_password1" class="form-label">Password*</label>
+                                        <input type="password" name="password1" class="form-control" id="id_password1"
+                                            required>
+                                        <div class="invalid-feedback">Please enter a password</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_password2" class="form-label">Confirm Password*</label>
+                                        <input type="password" name="password2" class="form-control" id="id_password2"
+                                            required>
+                                        <div class="invalid-feedback">Please confirm your password</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="id_user_type" class="form-label">Register As*</label>
+                                        <select name="user_type" class="form-select" id="id_user_type" required>
+                                            <option value="">Select your role</option>
+                                            <option value="Patient">Patient</option>
+                                            <option value="Doctor">Doctor</option>
+                                            <option value="Admin">Administrator</option>
+                                        </select>
+                                        <div class="invalid-feedback">Please select a role</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Patient Fields -->
+                            <div id="Patient-fields" class="role-fields mb-4">
+                                <h4 class="mb-3 border-bottom pb-2">Patient Details</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="id_date_of_birth" class="form-label">Date of Birth*</label>
+                                        <input type="date" name="date_of_birth" class="form-control"
+                                            id="id_date_of_birth">
+                                        <div class="invalid-feedback">Please enter your date of birth</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_gender" class="form-label">Gender*</label>
+                                        <select name="gender" class="form-select" id="id_gender">
+                                            <option value="">Select gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <div class="invalid-feedback">Please select your gender</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="id_address" class="form-label">Address*</label>
+                                        <textarea name="address" class="form-control" id="id_address"
+                                            rows="2"></textarea>
+                                        <div class="invalid-feedback">Please enter your address</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_emergency_contact_name" class="form-label">Emergency Contact
+                                            Name*</label>
+                                        <input type="text" name="emergency_contact_name" class="form-control"
+                                            id="id_emergency_contact_name">
+                                        <div class="invalid-feedback">Please enter emergency contact</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_emergency_contact_phone" class="form-label">Emergency Contact
+                                            Phone*</label>
+                                        <input type="tel" name="emergency_contact_phone" class="form-control"
+                                            id="id_emergency_contact_phone" pattern="\+?\d{7,20}"
+                                            placeholder="+1234567890">
+                                        <div class="invalid-feedback">Please enter valid phone number</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="id_general_medical_history" class="form-label">Medical
+                                            History</label>
+                                        <textarea name="general_medical_history" class="form-control"
+                                            id="id_general_medical_history" rows="3"></textarea>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_insurance_provider" class="form-label">Insurance Provider</label>
+                                        <input type="text" name="insurance_provider" class="form-control"
+                                            id="id_insurance_provider">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_photo" class="form-label">Profile Photo</label>
+                                        <input type="file" name="photo" class="form-control" id="id_photo"
+                                            accept="image/*">
+                                        <div id="photo-preview" class="mt-2"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Doctor Fields -->
+                            <div id="Doctor-fields" class="role-fields mb-4">
+                                <h4 class="mb-3 border-bottom pb-2">Professional Information</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="id_license_number" class="form-label">License Number*</label>
+                                        <input type="text" name="license_number" class="form-control"
+                                            id="id_license_number">
+                                        <div class="invalid-feedback">Please enter license number</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_specialization" class="form-label">Specialization</label>
+                                        <input type="text" name="specialization" class="form-control"
+                                            id="id_specialization" value="General">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="id_fees" class="form-label">first visit</label>
+                                        <input type="number" name="fees" class="form-control" id="id_fees" step="0.01"
+                                            min="0" value="0.0">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_follow_up_fees" class="form-label">Follow-up</label>
+                                        <input type="number" name="follow_up_fees" class="form-control"
+                                            id="id_follow_up_fees" step="0.01" min="0" value="0.0">
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="id_about" class="form-label">About</label>
+                                        <textarea name="about" class="form-control" id="id_about" rows="3"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="id_education" class="form-label">Education</label>
+                                        <textarea name="education" class="form-control" id="id_education"
+                                            rows="3"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="id_experiences" class="form-label">Experiences</label>
+                                        <textarea name="experiences" class="form-control" id="id_experiences"
+                                            rows="3"></textarea>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_photo" class="form-label">Profile Photo</label>
+                                        <input type="file" name="photo" class="form-control" id="id_photo"
+                                            accept="image/*">
+                                        <div id="photo-preview" class="mt-2"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Admin Fields -->
+                            <div id="Admin-fields" class="role-fields mb-4">
+                                <h4 class="mb-3 border-bottom pb-2">Administrator Details</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="id_role" class="form-label">Role*</label>
+                                        <select name="role" class="form-select" id="id_role">
+                                            <option value="">Select role</option>
+                                            <option value="SuperAdmin">Super Admin</option>
+                                            <option value="Manager">Manager</option>
+                                            <option value="Staff">Staff</option>
+                                        </select>
+                                        <div class="invalid-feedback">Please select admin role</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_photo" class="form-label">Profile Photo</label>
+                                        <input type="file" name="photo" class="form-control" id="id_photo"
+                                            accept="image/*">
+                                        <div id="photo-preview" class="mt-2"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg py-3">Create Account</button>
+                            </div>
+                        </form>
+
+                        <div class="text-center mt-4">
+                            <p>Already have an account? <a href="{% url 'login' %}">Sign in here</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const roleSelect = document.getElementById('id_user_type');
+            const form = document.getElementById('registrationForm');
+
+            // Toggle role-specific fields
+            function updateRoleFields() {
+                document.querySelectorAll('.role-fields').forEach(section => {
+                    section.style.display = 'none';
+                });
+
+                const selectedRole = roleSelect.value;
+                if (selectedRole) {
+                    const activeSection = document.getElementById(`${selectedRole}-fields`);
+                    if (activeSection) {
+                        activeSection.style.display = 'block';
+                    }
+                }
+            }
+
+            // Image preview functionality
+            function setupImagePreview(inputId) {
+                const input = document.getElementById(inputId);
+                if (input) {
+                    input.addEventListener('change', function () {
+                        const preview = this.parentNode.querySelector('#photo-preview');
+                        if (this.files && this.files[0]) {
+                            const reader = new FileReader();
+                            reader.onload = function (e) {
+                                preview.innerHTML = '';
+                                const img = document.createElement('img');
+                                img.src = e.target.result;
+                                img.style.maxWidth = '150px';
+                                img.style.maxHeight = '150px';
+                                img.classList.add('img-thumbnail');
+                                preview.appendChild(img);
+                            }
+                            reader.readAsDataURL(this.files[0]);
+                        }
+                    });
+                }
+            }
+
+            // Form validation
+            form.addEventListener('submit', function (e) {
+                // Clear previous invalid states
+                form.querySelectorAll('.is-invalid').forEach(el => {
+                    el.classList.remove('is-invalid');
+                });
+
+                // Validate basic info
+                let isValid = true;
+                const requiredBasic = form.querySelectorAll('#id_first_name, #id_last_name, #id_username, #id_email, #id_password1, #id_password2, #id_user_type');
+
+                requiredBasic.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.classList.add('is-invalid');
+                        if (isValid) {
+                            field.focus();
+                        }
+                        isValid = false;
+                    }
+                });
+
+                // Validate role-specific fields
+                const selectedRole = roleSelect.value;
+                if (selectedRole) {
+                    const roleSection = document.getElementById(`${selectedRole}-fields`);
+                    if (roleSection) {
+                        const requiredRoleFields = roleSection.querySelectorAll('[required]');
+                        requiredRoleFields.forEach(field => {
+                            if (!field.value.trim()) {
+                                field.classList.add('is-invalid');
+                                if (isValid) {
+                                    field.focus();
+                                }
+                                isValid = false;
+                            }
+                        });
+                    }
+                }
+
+                if (!isValid) {
+                    e.preventDefault();
+                }
+            });
+
+            // Initialize
+            roleSelect.addEventListener('change', updateRoleFields);
+            updateRoleFields();
+            setupImagePreview('id_photo');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,422 @@
+body {
+    font-family: Arial, sans-serif;
+    height: 200vh;
+    /* Ensure the page is tall enough to scroll */
+}
+
+
+/* --- Top Strip --- */
+.top-strip {
+    position: fixed;
+    /* Fix it to the top of the page */
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    /* Reduced padding for more space */
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    transition: top 0.3s ease;
+    /* Smooth transition */
+    z-index: 100;
+    /* Ensure it stays on top */
+    flex-wrap: wrap;
+    /* Allow wrapping for smaller screens */
+}
+
+.left-strip,
+.center-strip,
+.right-strip {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.right-strip {
+    margin-right: 4vh;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Adjust spacing */
+    flex-wrap: wrap;
+    /* Allow wrapping for smaller screens */
+    justify-content: flex-end;
+    /* Align to the right */
+}
+
+.left-strip i {
+    color: #004466;
+    font-size: 16px;
+}
+
+.center-strip a {
+    text-decoration: none;
+    color: #004466;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    background-color: #f0f8ff;
+}
+
+.center-strip a:hover {
+    background-color: #004466;
+    color: white;
+}
+
+/* Language Button */
+.lang-btn {
+    background-color: #004466;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 13px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+.search-container .search-btn {
+    background-color: #004466;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Hotline */
+.hotline {
+    color: #004466;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    /* Prevent text from breaking */
+}
+
+.hotline strong {
+    color: #007bff;
+}
+
+/* --- Main Navbar --- */
+.main-navbar {
+    display: flex;
+    align-items: center;
+    padding: 18px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    margin-top: 80px;
+    /* Leave space for the fixed top strip */
+}
+
+.logo {
+    flex: 0 0 auto;
+    width: auto;
+    /* Add some space to the right of the logo */
+}
+
+.logo img {
+    height: 5vh;
+    /* Increased logo size */
+    width: auto;
+}
+
+/* Center nav menu */
+.nav-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 6px 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #007bff;
+}
+
+/* Add some placeholder content styles */
+.content {
+    padding: 20px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: auto;
+    padding: 20px 0;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 33.33%;
+    /* Show 3 items at a time */
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.carousel-control-prev {
+    left: 10px;
+}
+
+.carousel-control-next {
+    right: 10px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.slider-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sliderbackground {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.item-content {
+    padding: 15px;
+}
+
+.static_part {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.partone {
+    position: relative;
+    width: 100%;
+    /* Full width */
+    height: 75vh;
+    /* Maximum height is 3/4 of the viewport height */
+    overflow: hidden;
+    /* Crop any overflow */
+    margin: 0;
+    /* Remove margins */
+}
+
+.partone img {
+    filter: brightness(0.8);
+    /* Darken the image for better text visibility */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Fill the container height */
+    object-fit: cover;
+    /* Crop the image to fit without stretching */
+    display: block;
+    /* Remove any inline spacing */
+    border-radius: 0;
+    /* Remove border radius for full-width effect */
+}
+
+.onimage {
+    position: absolute;
+    /* Position text on top of the image */
+    top: 20%;
+    /* Center vertically */
+    left: 30%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Adjust for centering */
+    text-align: center;
+    /* Center-align text */
+    color: white;
+    /* Ensure text is visible on the image */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    /* Add shadow for better readability */
+}
+
+.partone h1 {
+    font-size: 48px;
+    /* Larger font size for the title */
+    margin-bottom: 10px;
+}
+
+.partone p {
+    font-size: 24px;
+    /* Adjust font size for the description */
+    margin: 5px 0;
+}
+
+.partone h1 {
+    font-size: 40px;
+    margin-top: 50px;
+}
+
+.partone p {
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.wowow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.parttwo {
+    padding: 40px;
+    background-color: #fff;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.parttwo h2 {
+    font-size: 35px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.parttwo p {
+    font-size: 25px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.parttwo button {
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.parttwo button:hover {
+    background-color: #004d99;
+}
+
+.aboutus {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 40px;
+    background-color: #f9f9f9;
+    margin: 20px;
+    max-width: 80%;
+}
+
+.aboutus .container {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.aboutus h3 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.aboutus p {
+    font-size: 23px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.aboutus button {
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.aboutus button:hover {
+    background-color: #004d99;
+}
+
+.aboutus img {
+    flex: 1;
+    max-width: 100%;
+    height: 30vh;
+    border-radius: 10px;
+    width: 30vw;
+}
+
+
+@media (max-width: 768px) {
+    .carousel-item {
+        min-width: 50%;
+        /* Show 2 items on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-item {
+        min-width: 100%;
+        /* Show 1 item on mobile */
+    }
+}

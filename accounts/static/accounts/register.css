@@ -1,0 +1,148 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.split-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.left-panel {
+    flex: 0.4;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+
+.register-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+.right-panel {
+    flex: 0.6;
+    background-color: #f8f9fa;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form-wrapper {
+    background-color: #fff;
+    width: 100%;
+    max-width: 800px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 14px;
+    color: #555;
+}
+
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+label {
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+input,
+select,
+textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.role-fields {
+    display: none;
+}
+
+
+.submit-section {
+    text-align: center;
+}
+
+.submit-button {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #0b5ed7;
+}
+
+.submit-section p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.submit-section a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.submit-section a:hover {
+    text-decoration: underline;
+}
+
+
+.alert {
+    background-color: #fde2e2;
+    color: #842029;
+    padding: 10px 15px;
+    border-left: 5px solid red;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}

@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home - Hospital Management</title>
+
+    <link rel="stylesheet" href="{% static 'main/homepage.css' %}">
+</head>
+
+<body>
+    <!-- Toolbar -->
+    <div class="toolbar">
+        <div>
+            <h2>Hospital Management System</h2>
+        </div>
+        <div>
+            {% if user_type == "patient" %}
+            <form method="get" action="{% url 'accounts:patient_profile' %}" style="display:inline;">
+                <button type="submit">Profile</button>
+            </form>
+            {% else %}
+            <form method="get" action="{% url 'accounts:doctor_profile2' %}" style="display:inline;">
+                <button type="submit">Profile</button>
+            </form>
+            {% endif %}
+            <form method="get" action="#" style="display:inline;">
+                <button type="submit">Appointments</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Center content -->
+    <div class="center-content">
+        <!-- Removed the image section entirely -->
+        <p>Welcome to our hospital management system. We help you manage your health, appointments, and more with ease.
+        </p>
+    </div>
+
+    <!-- Bottom section -->
+    <div class="bottom-section">
+        <div>
+            <h3>Why Choose Us</h3>
+            <p>Efficient care, reliable doctors, and fast appointments.</p>
+        </div>
+        <div>
+            <h3>About Us</h3>
+            <p>We are a team dedicated to improving healthcare management through technology.</p>
+        </div>
+        <div>
+            <h3>Contact Us</h3>
+            <p>Email: support@hospital.com<br>Phone: +1234567890</p>
+        </div>
+    </div>
+</body>
+
+</html>

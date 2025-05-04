@@ -1,0 +1,40 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #004466;
+    color: white;
+    padding: 10px 20px;
+}
+
+.toolbar button {
+    background-color: #006699;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.center-content {
+    text-align: center;
+    padding: 50px;
+}
+
+/* Removed the image style since we're not displaying any image anymore */
+.bottom-section {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f2f2f2;
+    padding: 40px;
+}
+
+.bottom-section div {
+    width: 30%;
+}

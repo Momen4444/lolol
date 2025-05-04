@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Doctors Carousel</title>
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'accounts/homepage.css' %}">
+</head>
+
+<body>
+  <div class="top-strip" id="top-strip">
+    <!-- Social Media Icons -->
+    <div class="left-strip">
+      <div class="logo">
+        <img src="https://res.cloudinary.com/des3ftcuk/image/upload/v1746104714/withoutbackground_hisftm.png"
+          alt="Hospital Logo">
+      </div>
+      <a href="https://www.facebook.com/RickAstley/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/officialrickastley/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- Page Links (merged in center) -->
+    <div class="center-strip">
+
+      <a href="/">Home</a>
+      <a href="/about-us">About Us</a>
+      <a href="/the-hospital">The Hospital</a>
+      <a href="/doctors">Doctors</a>
+    </div>
+
+    <!-- Right Tools -->
+    <div class="right-strip">
+
+      <a href="tel:+16522" class="hotline">
+        <i class="fas fa-phone"></i> Hotline <strong>19719</strong>
+      </a>
+    </div>
+  </div>
+
+  <div class="static_part">
+    <div class="partone">
+      <img src="https://miro.medium.com/v2/resize:fit:700/1*9AJeIU-isUFmmbyAISR3gw.png" alt="clinic image">
+      <div class="onimage">
+        <h1>Ophthalmology Clinic</h1>
+        <p>Exquisite care for your eyes</p>
+        <p>Because every detail of your vision matters</p>
+      </div>
+    </div>
+  </div>
+  <div class="wowow">
+    <div class="parttwo">
+      <h2>Ophthalmology Clinic</h2>
+      <p>At our ophthalmology clinic, we blend advanced medical expertise with compassionate care to preserve and
+        enhance your vision, offering personalized treatments in a serene, state-of-the-art environment — because your
+        eyes are not just windows to the world, but reflections of your health, confidence, and the life you deserve to
+        see clearly.</p>
+      <button type="button">Read More</button>
+    </div>
+    <div class="aboutus">
+      <div class="container">
+        <h3>About Us</h3>
+        <p>At our ophthalmology clinic, we provide comprehensive eye care using the latest technology to ensure clear,
+          healthy vision for life. Whether it’s routine checkups or specialized treatments, we are dedicated to
+          preserving your sight with personalized care, helping you see the world with clarity and confidence every day.
+        </p>
+        <button type="button">Read More</button>
+      </div>
+      <img src="https://res.cloudinary.com/des3ftcuk/image/upload/v1746146789/image3.jpeg_b8gyfa.jpg"
+        alt="clinic image">
+    </div>
+  </div>
+  </div>
+
+
+  <div class="sliderbackground">
+    <div class="container">
+      <div class="carousel">
+        <div class="carousel-inner">
+          {% for doctor in doctors %}
+          <div class="carousel-item">
+            <a href="{% url 'accounts-doctor_profile' doctor.user.id %}"><img src="{{ doctor.photo }}"
+                alt="{{ doctor.name }}" class="slider-image"></a>
+            <div class="item-content">
+              <h3>{{ doctor.user.first_name }} {{doctor.user.last_name}}</h3>
+              <h4>{{ doctor.specialization }}</h4>
+              <p>{{ doctor.about }}</p>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+        <button class="carousel-control carousel-control-prev" onclick="prevSlide()" type="button">❮</button>
+        <button class="carousel-control carousel-control-next" onclick="nextSlide()" type="button">❯</button>
+      </div>
+    </div>
+  </div>
+  <footer style="background-color: #333; color: #fff; padding: 20px 0; text-align: center;">
+    <div class="footer-container" style="max-width: 1200px; margin: auto; padding: 0 20px;">
+      <div class="footer-content"
+        style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+        <!-- Footer Logo -->
+        <div class="footer-logo" style="flex: 1; text-align: left;">
+          <img src="https://res.cloudinary.com/des3ftcuk/image/upload/v1746104714/withoutbackground_hisftm.png"
+            alt="Logo" style="width: 5vh;">
+        </div>
+
+        <!-- Footer Links -->
+        <div class="footer-links" style="flex: 2; text-align: center;">
+          <a href="/" style="color: #fff; text-decoration: none; margin: 0 10px;">Login</a>
+          <a href="/about-us" style="color: #fff; text-decoration: none; margin: 0 10px;">About Us</a>
+          <a href="/services" style="color: #fff; text-decoration: none; margin: 0 10px;">Services</a>
+          <a href="/contact" style="color: #fff; text-decoration: none; margin: 0 10px;">Contact</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="footer-social" style="flex: 1; text-align: right;">
+          <a href="https://www.facebook.com" target="_blank" style="color: #fff; margin: 0 5px;">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.twitter.com" target="_blank" style="color: #fff; margin: 0 5px;">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com" target="_blank" style="color: #fff; margin: 0 5px;">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer Copyright -->
+      <div class="footer-copyright" style="margin-top: 20px; font-size: 14px;">
+        © 2025 Big O Studios. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <script>
+    let currentIndex = 0;
+    const items = document.querySelectorAll('.carousel-item');
+    let itemsPerSlide = 3; // Number of items to show at once
+
+    function showSlide(index) {
+      // Ensure index doesn't go beyond the possible slides
+      const maxIndex = Math.max(0, items.length - itemsPerSlide);
+      currentIndex = Math.min(Math.max(index, 0), maxIndex);
+
+      const inner = document.querySelector('.carousel-inner');
+      const itemWidth = 100 / itemsPerSlide;
+      inner.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+
+    // Adjust for responsive design
+    function adjustItemsPerSlide() {
+      if (window.innerWidth < 480) {
+        itemsPerSlide = 1;
+      } else if (window.innerWidth < 768) {
+        itemsPerSlide = 2;
+      } else {
+        itemsPerSlide = 3;
+      }
+      showSlide(currentIndex);
+    }
+
+    window.addEventListener('resize', adjustItemsPerSlide);
+
+    // Initialize
+    adjustItemsPerSlide();
+    showSlide(0);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Registration</title>
+    <link rel="stylesheet" href="{% static 'accounts/register_admin.css' %}">
+</head>
+
+<body>
+
+    <div class="screen">
+        <div class="register">
+            <h1>Admin Registration</h1>
+
+            <!-- Display Django messages -->
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+            </ul>
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <label>Full Name:</label>
+                <div class="input_field">
+                    <input type="text" name="full_name" required placeholder="Enter your full name">
+                </div>
+
+                <label>Email:</label>
+                <div class="input_field">
+                    <input type="email" name="email" required placeholder="name@example.com">
+                </div>
+
+                <label>Password:</label>
+                <div class="input_field">
+                    <input type="password" name="password1" required placeholder="Your password">
+                </div>
+
+                <label>Confirm Password:</label>
+                <div class="input_field">
+                    <input type="password" name="password2" required placeholder="Confirm password">
+                </div>
+
+                <label>Phone Number:</label>
+                <div class="input_field">
+                    <input type="text" name="phone_number" required placeholder="e.g. +1234567890">
+                </div>
+
+                <label>Verification Code:</label>
+                <div class="input_field">
+                    <input type="text" name="verification_code" required placeholder="Admin code (e.g. ADMIN123)">
+                </div>
+
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <img src="{% static 'accounts/images/hospital.jpg' %}" class="imagediv" alt="Hospital Image">
+    </div>
+
+</body>
+
+</html>
